@@ -20,6 +20,15 @@ class WorkoutStartView: WKInterfaceController {
         /// - Tag: RequestAuthorization
         // The quantity type to write to the health store.
         let typesToShare: Set = [
+            HKQuantityType.workoutType(),
+            HKQuantityType.quantityType(forIdentifier: .heartRate)!,
+            HKQuantityType.quantityType(forIdentifier: .bodyTemperature)!,
+            HKQuantityType.quantityType(forIdentifier: .bodyFatPercentage)!,
+            HKQuantityType.quantityType(forIdentifier: .oxygenSaturation)!,
+            HKQuantityType.quantityType(forIdentifier: .height)!,
+            HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!,
+            HKQuantityType.quantityType(forIdentifier: .respiratoryRate)!,
+            HKQuantityType.quantityType(forIdentifier: .restingHeartRate)!,
             HKQuantityType.workoutType()
         ]
         
@@ -27,7 +36,15 @@ class WorkoutStartView: WKInterfaceController {
         let typesToRead: Set = [
             HKQuantityType.quantityType(forIdentifier: .heartRate)!,
             HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned)!,
-            HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!
+            HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!,
+            HKQuantityType.quantityType(forIdentifier: .bodyTemperature)!,
+            HKQuantityType.quantityType(forIdentifier: .bodyFatPercentage)!,
+            HKQuantityType.quantityType(forIdentifier: .oxygenSaturation)!,
+            HKQuantityType.quantityType(forIdentifier: .height)!,
+            HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!,
+            HKQuantityType.quantityType(forIdentifier: .respiratoryRate)!,
+            HKQuantityType.quantityType(forIdentifier: .restingHeartRate)!,
+            HKQuantityType.workoutType()
         ]
         
         // Request authorization for those quantity types.
@@ -40,8 +57,8 @@ class WorkoutStartView: WKInterfaceController {
         if segueIdentifier == "startWorkout" {
             /// - Tag: WorkoutConfiguration
             let configuration = HKWorkoutConfiguration()
-            configuration.activityType = .running
-            configuration.locationType = .outdoor
+            configuration.activityType = .preparationAndRecovery
+            configuration.locationType = .indoor
             
             return WorkoutSessionContext(healthStore: healthStore, configuration: configuration)
         }

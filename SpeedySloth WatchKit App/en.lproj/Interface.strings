@@ -1,0 +1,15 @@
+
+/* Class = "WKInterfaceLabel"; text = "Alert Label"; ObjectID = "IdU-wH-bcW"; */
+"IdU-wH-bcW.text" = "Alert Label";
+
+/* Class = "WKInterfaceLabel"; text = "0.0 BPM"; ObjectID = "XaF-66-Mge"; */
+"XaF-66-Mge.text" = "0.0 BPM";
+
+/* Class = "WKInterfaceButton"; title = "RUN"; ObjectID = "ZHB-Kw-6mU"; */
+"ZHB-Kw-6mU.title" = "RUN";
+
+/* Class = "WKInterfaceLabel"; text = "0.0 m"; ObjectID = "Zpe-6h-42H"; */
+"Zpe-6h-42H.text" = "0.0 m";
+
+/* Class = "WKInterfaceLabel"; text = "0.0 cal"; ObjectID = "cLM-Yu-laI"; */
+"cLM-Yu-laI.text" = "0.0 cal";

@@ -11,11 +11,16 @@ import HealthKit
 
 class WorkoutSession: WKInterfaceController, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDelegate {
     
+    //para las etiquetas en e storyboard bodyFatPercentage
     @IBOutlet weak var timer: WKInterfaceTimer!
     
     @IBOutlet weak var activeCaloriesLabel: WKInterfaceLabel!
     @IBOutlet weak var heartRateLabel: WKInterfaceLabel!
     @IBOutlet weak var distanceLabel: WKInterfaceLabel!
+    @IBOutlet weak var oxygenSaturationLabel: WKInterfaceLabel!
+    @IBOutlet weak var bodyTemperatureLabel: WKInterfaceLabel!
+    @IBOutlet weak var heartRateVLabel: WKInterfaceLabel!
+    @IBOutlet weak var fatLabel: WKInterfaceLabel!
     
     var healthStore: HKHealthStore!
     var configuration: HKWorkoutConfiguration!
@@ -50,7 +55,7 @@ class WorkoutSession: WKInterfaceController, HKWorkoutSessionDelegate, HKLiveWor
         /// - Tag: StartSession
         session.startActivity(with: Date())
         builder.beginCollection(withStart: Date()) { (success, error) in
-            self.setDurationTimerDate(.running)
+            self.setDurationTimerDate(.prepared)
         }
     }
     
@@ -86,11 +91,12 @@ class WorkoutSession: WKInterfaceController, HKWorkoutSessionDelegate, HKLiveWor
         DispatchQueue.main.async {
             /// Update the timer based on the state we are in.
             /// - Tag: UpdateTimer
-            sessionState == .running ? self.timer.start() : self.timer.stop()
+            sessionState == .prepared ? self.timer.start() : self.timer.stop()
         }
     }
     
     // MARK: - HKLiveWorkoutBuilderDelegate
+    //se hace un sample, es decir como que datos leatorios creo
     func workoutBuilder(_ workoutBuilder: HKLiveWorkoutBuilder, didCollectDataOf collectedTypes: Set<HKSampleType>) {
         for type in collectedTypes {
             guard let quantityType = type as? HKQuantityType else {
@@ -189,8 +195,11 @@ class WorkoutSession: WKInterfaceController, HKWorkoutSessionDelegate, HKLiveWor
     }
     
     // MARK: - Update the interface
+    //super importante porque esto es lo que se medirá
     
     /// Retreive the WKInterfaceLabel object for the quantity types we are observing.
+    
+    //se assignan etiquetas en el storyboard para cada como funcion bodyFatPercentage
     func labelForQuantityType(_ type: HKQuantityType) -> WKInterfaceLabel? {
         switch type {
         case HKQuantityType.quantityType(forIdentifier: .heartRate):
@@ -199,7 +208,22 @@ class WorkoutSession: WKInterfaceController, HKWorkoutSessionDelegate, HKLiveWor
             return activeCaloriesLabel
         case HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning):
             return distanceLabel
+            //aqui agregare los nuevos
+        case HKQuantityType.quantityType(forIdentifier: .oxygenSaturation):
+            return oxygenSaturationLabel
+            
+        case HKQuantityType.quantityType(forIdentifier: .bodyTemperature):
+            return bodyTemperatureLabel
+        
+        case HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN):
+            return heartRateVLabel
+            
+        case HKQuantityType.quantityType(forIdentifier: .bodyFatPercentage):
+                return fatLabel
+            
         default:
+            
+            //bodyTemperatureLabel heartRateVLabel
             return nil
         }
     }
@@ -220,20 +244,59 @@ class WorkoutSession: WKInterfaceController, HKWorkoutSessionDelegate, HKLiveWor
                 let value = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit)
                 let roundedValue = Double( round( 1 * value! ) / 1 )
                 label.setText("\(roundedValue) BPM")
+                
             case HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned):
                 let energyUnit = HKUnit.kilocalorie()
                 let value = statistics.sumQuantity()?.doubleValue(for: energyUnit)
                 let roundedValue = Double( round( 1 * value! ) / 1 )
                 label.setText("\(roundedValue) cal")
                 return
+                
             case HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning):
                 let meterUnit = HKUnit.meter()
                 let value = statistics.sumQuantity()?.doubleValue(for: meterUnit)
                 let roundedValue = Double( round( 1 * value! ) / 1 )
-                label.setText("\(roundedValue) m")
+                label.setText("\(roundedValue) met")
                 return
+                
+                //le quite que se dividiera entre minutos .bodyTemperature
+            case HKQuantityType.quantityType(forIdentifier: .oxygenSaturation):
+            let oxygenUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
+            let value = statistics.mostRecentQuantity()?.doubleValue(for: oxygenUnit)
+            let roundedValue = Double( round( 1 * value! ) / 1 )
+            //aqui se indica que texto se le pondra a la etiqueta
+            label.setText("\(roundedValue) SPO2 ")
+                return
+                
+                
+                //static let bodyTemperature: HKQuantityTypeIdentifier .heartRateVariabilitySDNN
+            case HKQuantityType.quantityType(forIdentifier: .bodyTemperature):
+            let temperatureUnit = HKUnit.degreeCelsius()
+            let value = statistics.mostRecentQuantity()?.doubleValue(for: temperatureUnit)
+            let roundedValue = Double( round( 1 * value! ) / 1 )
+            //aqui se indica que texto se le pondra a la etiqueta
+            label.setText("\(roundedValue) ºC ")
+                return
+            
+            case HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN):
+                               /// - Tag: SetLabel
+            let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
+            let value = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit)
+            let roundedValue = Double( round( 1 * value! ) / 1 )
+            label.setText("\(roundedValue) Bn")
+                return
+                
+            case HKQuantityType.quantityType(forIdentifier: .bodyFatPercentage):
+                let fatUnit = HKUnit.fluidOunceUS().unitDivided(by: HKUnit.pound())
+            let value = statistics.mostRecentQuantity()?.doubleValue(for: fatUnit)
+            let roundedValue = Double( round( 1 * value! ) / 1 )
+            //aqui se indica que texto se le pondra a la etiqueta
+            label.setText("\(roundedValue) lb ")
+                return
+                
             default:
                 return
+                
             }
         }
     }

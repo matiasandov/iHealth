@@ -73,7 +73,7 @@
 /* Begin PBXFileReference section */
 		8A255A87209A9F3B00B63199 /* WorkoutRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutRow.swift; sourceTree = "<group>"; };
 		8A255A8C209AA01B00B63199 /* WorkoutSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSession.swift; sourceTree = "<group>"; };
-		8A7C52382093A3B500D1C372 /* SpeedySloth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedySloth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A7C52382093A3B500D1C372 /* iHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A7C523B2093A3B500D1C372 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A7C523D2093A3B500D1C372 /* WorkoutStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutStartView.swift; sourceTree = "<group>"; };
 		8A7C52402093A3B500D1C372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		8A7C52392093A3B500D1C372 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8A7C52382093A3B500D1C372 /* SpeedySloth.app */,
+				8A7C52382093A3B500D1C372 /* iHealth.app */,
 				8A7C524F2093A45D00D1C372 /* SpeedySloth WatchKit App.app */,
 				8A7C525B2093A45E00D1C372 /* SpeedySloth WatchKit App Extension.appex */,
 			);
@@ -244,7 +244,7 @@
 			);
 			name = SpeedySloth;
 			productName = SpeedySloth;
-			productReference = 8A7C52382093A3B500D1C372 /* SpeedySloth.app */;
+			productReference = 8A7C52382093A3B500D1C372 /* iHealth.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8A7C524E2093A45D00D1C372 /* SpeedySloth WatchKit App */ = {
@@ -563,7 +563,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SpeedySloth-2${SAMPLE_CODE_DISAMBIGUATOR}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iHealth;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -586,7 +586,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SpeedySloth-2${SAMPLE_CODE_DISAMBIGUATOR}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iHealth;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

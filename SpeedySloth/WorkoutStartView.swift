@@ -29,6 +29,8 @@ class WorkoutStartView: UIViewController {
             HKQuantityType.quantityType(forIdentifier: .oxygenSaturation)!,
             HKQuantityType.quantityType(forIdentifier: .height)!,
             HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!,
+            HKQuantityType.quantityType(forIdentifier: .respiratoryRate)!,
+            HKQuantityType.quantityType(forIdentifier: .restingHeartRate)!,
             HKQuantityType.workoutType()
            // HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!
         ]
