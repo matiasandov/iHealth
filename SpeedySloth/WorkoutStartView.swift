@@ -2,7 +2,7 @@
 See LICENSE folder for this sample’s licensing information.
 
 Abstract:
-Description about what the file includes goes here.
+aqui esta la programacion de lo que evriamos
 */
 
 import UIKit
@@ -12,9 +12,10 @@ class WorkoutStartView: UIViewController {
 
     let healthStore = HKHealthStore()
     
+    //aqui se esta cambiando la funcion heredada de UIviewController, configurando el titulo y la vista
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "SpeedySloth"
+        title = "iHealthy"
         navigationController?.navigationBar.prefersLargeTitles = true
         
         let typesToShare: Set = [
@@ -24,7 +25,7 @@ class WorkoutStartView: UIViewController {
         let typesToRead: Set = [
             HKQuantityType.quantityType(forIdentifier: .heartRate)!,
             HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned)!,
-            HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!
+           // HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!
         ]
         
         healthStore.requestAuthorization(toShare: typesToShare, read: typesToRead) { (success, error) in

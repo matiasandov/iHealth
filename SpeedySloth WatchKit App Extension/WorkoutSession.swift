@@ -27,7 +27,7 @@ class WorkoutSession: WKInterfaceController, HKWorkoutSessionDelegate, HKLiveWor
         super.awake(withContext: context)
         setupWorkoutSessionInterface(with: context)
         
-        // Create the session and obtain the workout builder.
+        // Create the session and obtain the workout builder. o sea se obtienen datos del usuario
         /// - Tag: CreateWorkout
         do {
             session = try HKWorkoutSession(healthStore: healthStore, configuration: configuration)
@@ -37,11 +37,11 @@ class WorkoutSession: WKInterfaceController, HKWorkoutSessionDelegate, HKLiveWor
             return
         }
         
-        // Setup session and builder.
+        // Setup session and builder. (builder creo que es la persona)
         session.delegate = self
         builder.delegate = self
         
-        /// Set the workout builder's data source.
+        /// Set the workout builder's data source. Se configura el data de la persona
         /// - Tag: SetDataSource
         builder.dataSource = HKLiveWorkoutDataSource(healthStore: healthStore,
                                                      workoutConfiguration: configuration)
@@ -53,6 +53,7 @@ class WorkoutSession: WKInterfaceController, HKWorkoutSessionDelegate, HKLiveWor
             self.setDurationTimerDate(.running)
         }
     }
+    
     
     // Track elapsed time.
     func workoutBuilderDidCollectEvent(_ workoutBuilder: HKLiveWorkoutBuilder) {
@@ -103,6 +104,8 @@ class WorkoutSession: WKInterfaceController, HKWorkoutSessionDelegate, HKLiveWor
             updateLabel(label, withStatistics: statistics)
         }
     }
+    
+    
     
     // MARK: - State Control
     func pauseWorkout() {
