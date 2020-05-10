@@ -15,25 +15,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SpeedySloth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3Q-1h-WX0">
-                                <rect key="frame" x="110.5" y="98" width="154.5" height="33.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2019 Apple. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKF-Yi-pYB">
-                                <rect key="frame" x="56.5" y="598" width="262.5" height="15"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iHealth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3Q-1h-WX0">
+                                <rect key="frame" x="109.5" y="98" width="156" height="471"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.9935509562" green="0.7569049001" blue="0.80178350210000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="f3Q-1h-WX0" firstAttribute="top" secondItem="ioq-ff-QZE" secondAttribute="top" constant="98" id="CM4-wf-PXV"/>
-                            <constraint firstItem="ioq-ff-QZE" firstAttribute="bottom" secondItem="DKF-Yi-pYB" secondAttribute="bottom" constant="54" id="IkM-rC-V8I"/>
                             <constraint firstItem="f3Q-1h-WX0" firstAttribute="centerX" secondItem="cwn-jQ-oCe" secondAttribute="centerX" id="bES-3H-RXd"/>
-                            <constraint firstItem="DKF-Yi-pYB" firstAttribute="centerX" secondItem="cwn-jQ-oCe" secondAttribute="centerX" id="uF0-wX-WtJ"/>
+                            <constraint firstItem="f3Q-1h-WX0" firstAttribute="centerX" secondItem="cwn-jQ-oCe" secondAttribute="centerX" id="gmD-AK-Kf6"/>
+                            <constraint firstItem="f3Q-1h-WX0" firstAttribute="centerY" secondItem="cwn-jQ-oCe" secondAttribute="centerY" id="wWs-f7-58E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ioq-ff-QZE"/>
                     </view>
