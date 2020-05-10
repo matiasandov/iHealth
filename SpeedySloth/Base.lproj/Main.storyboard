@@ -369,10 +369,10 @@
             </objects>
             <point key="canvasLocation" x="2342" y="873"/>
         </scene>
-        <!--View Controller-->
+        <!--The Basics View Controller-->
         <scene sceneID="uQk-Sc-wgs">
             <objects>
-                <viewController id="O8q-S0-6z1" sceneMemberID="viewController">
+                <viewController id="O8q-S0-6z1" customClass="TheBasicsViewController" customModule="iHealth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6UN-S7-0of">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -408,11 +408,18 @@
                                 <rect key="frame" x="50" y="297" width="214" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="Age:" destination="O8q-S0-6z1" eventType="editingDidEnd" id="ES9-i2-7AF"/>
+                                    <action selector="AgeInput:" destination="O8q-S0-6z1" eventType="editingDidEnd" id="cFl-QG-TX8"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N9a-gl-zgg">
                                 <rect key="frame" x="50" y="448" width="214" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="HeightInput:" destination="O8q-S0-6z1" eventType="editingDidEnd" id="oWq-pd-Cpw"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9w-tp-dyE">
                                 <rect key="frame" x="50" y="532" width="214" height="47"/>
@@ -424,6 +431,9 @@
                                 <rect key="frame" x="50" y="599" width="214" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="WeightInput:" destination="O8q-S0-6z1" eventType="editingDidEnd" id="pxH-vn-HZu"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Xg-8b-3Fv">
                                 <rect key="frame" x="301" y="745" width="63" height="47"/>
@@ -433,6 +443,7 @@
                                     <color key="titleShadowColor" red="0.53033788069999999" green="0.40795875129999998" blue="0.43297462349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="nextBasics:" destination="O8q-S0-6z1" eventType="touchUpInside" id="j4U-4L-Llp"/>
                                     <segue destination="XVf-Fw-UXZ" kind="show" id="DqI-LW-RxA"/>
                                 </connections>
                             </button>
@@ -466,15 +477,20 @@
                         <viewLayoutGuide key="safeArea" id="LSW-Gp-zsl"/>
                     </view>
                     <navigationItem key="navigationItem" id="6wK-SS-9oa"/>
+                    <connections>
+                        <outlet property="Age" destination="NDk-iU-RqV" id="grR-0G-mHH"/>
+                        <outlet property="Height" destination="3iZ-Zu-r96" id="9AS-de-Xj3"/>
+                        <outlet property="Weight" destination="3iZ-Zu-r96" id="ESg-am-VyK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="znM-cw-z9a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1476" y="114.69265367316342"/>
         </scene>
-        <!--View Controller-->
+        <!--Medical View Controller-->
         <scene sceneID="rXD-by-uBa">
             <objects>
-                <viewController id="XVf-Fw-UXZ" sceneMemberID="viewController">
+                <viewController id="XVf-Fw-UXZ" customClass="MedicalViewController" customModule="iHealth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mwh-8a-OKo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -622,6 +638,9 @@
                         <viewLayoutGuide key="safeArea" id="JDN-QF-ySo"/>
                     </view>
                     <navigationItem key="navigationItem" id="IE3-gI-lbD"/>
+                    <connections>
+                        <outlet property="hiper" destination="bSE-0r-WIR" id="aXx-PL-rr1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZC-Kj-aRy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
